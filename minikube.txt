@@ -1,0 +1,47 @@
+1. k8s запускаете несколько контейнеров и управляет ими
+
+2. В файле drawio схематически показано что такое Kubernetes
+
+3. Kubernetes Cloud Сервисы
+с ними проще запускать (Amazon, Google, Yandex and another)
+И Local storage. 
+
+4. Kubernetes в миниатюре для локального запуска: k0s, MicroK8s, kind, k3s и Minikube
+
+
+1. Установка minikube 
+https://kubernetes.io/ru/docs/tasks/tools/install-minikube/
+
+    - curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+    && chmod +x minikube
+    - sudo mkdir -p /usr/local/bin/
+    - sudo install minikube /usr/local/bin/
+
+Проверка установки: minikube start --kubernetes-version 1.30.0
+
+2. Проверочные команды 
+
+minikube status / minikube stop
+
+kubectl version
+
+3. Создаем каталог .kube с нужной конфигурацией
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+3. Создаем кластер minikube start
+
+4. Проверка работы 
+
+сервер API работает
+docker ps | grep kube-apiserver
+
+
+
+kubectl get componentstatuses
+
+kubectl cluster-info
+
+5. kubectl get nodes
+из каких серверов состоит кластер
